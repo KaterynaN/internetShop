@@ -18,6 +18,7 @@ namespace InternetShop.Models
 
         [Required]
         [StringLength(50)]
+        [Display(Name = "category")]
         public string name { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

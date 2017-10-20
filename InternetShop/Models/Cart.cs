@@ -26,7 +26,30 @@ namespace InternetShop.Models
             }
             else
             {
+                orderItem.Quantity += quantity;
+            }
+        }
 
+        public void RemoveItem(item item)
+        {
+            cartItems.RemoveAll(ci => ci.Item.id == item.id);
+        }
+
+        public decimal TotalSum()
+        {
+            return cartItems.Sum(ci => ci.Item.price * ci.Quantity);
+        }
+
+        public void Clear()
+        {
+            cartItems.Clear();
+        }
+
+        public IEnumerable<CartItem> Items
+        {
+            get
+            {
+                return cartItems;
             }
         }
     }

@@ -16,6 +16,14 @@
         <p>Price: @Html.DisplayFor(modelItem => item.price)</p>
         <p>Description: @Html.DisplayFor(modelItem => item.description)</p>
         <p>@Html.ActionLink("Details", "Details", new { id = item.id })</p>
+        <p>
+            @using(Html.BeginForm("AddToCart", "Cart"))
+            {
+                @Html.HiddenFor(modelItem => item.id)
+                @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+                <input type="submit" class="btn btn-success" value="To cart" />
+            }
+        </p>
     </div>
 }
    
