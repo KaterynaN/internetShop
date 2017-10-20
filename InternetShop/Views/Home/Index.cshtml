@@ -1,0 +1,21 @@
+﻿
+@model IEnumerable<InternetShop.Models.item>
+
+@{
+    ViewBag.Title = "Main Page";
+}
+
+<h2>itemsList</h2>
+
+@foreach (var item in Model)
+{
+
+    <div>
+        <h3>@Html.DisplayFor(modelItem => item.name)</h3>
+        <p>@Html.DisplayFor(modelItem => item.category.name)</p>
+        <p>Price: @Html.DisplayFor(modelItem => item.price)</p>
+        <p>Description: @Html.DisplayFor(modelItem => item.description)</p>
+        <p>@Html.ActionLink("Details", "Details", new { id = item.id })</p>
+    </div>
+}
+   
