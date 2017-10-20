@@ -19,7 +19,8 @@
         <p>
             @using(Html.BeginForm("AddToCart", "Cart"))
             {
-                @Html.HiddenFor(modelItem => item.id)
+                //@Html.HiddenFor(modelItem => item.id)
+                @Html.Hidden("id", @item.id)
                 @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
                 <input type="submit" class="btn btn-success" value="To cart" />
             }

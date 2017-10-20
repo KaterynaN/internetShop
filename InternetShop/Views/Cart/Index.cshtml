@@ -1,0 +1,39 @@
+﻿@model InternetShop.Models.CartIndexViewModel
+
+@{
+    ViewBag.Title = "Cart";
+}
+
+<h2>Cart</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <td>Name</td>
+            <td>Quantity</td>
+            <td>Price</td>
+            <td>Summ</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model.Cart.Items) {
+            <tr>
+                <td>@item.Item.name</td>
+                <td>@item.Quantity</td>
+                <td>@item.Item.price</td>
+                <td>@(item.Quantity * item.Item.price)</td>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3">Total</td>
+            <td>@Model.Cart.TotalSum()</td>
+        </tr>
+    </tfoot>
+</table>
+
+<div>
+    <a href="@Model.ReturnUrl" class="bnt btn-primary">Continue shopping</a>
+</div>
+
